@@ -7,15 +7,15 @@ var questions = [
         },
         {title:'The condition in an if / else statement is enclosed with _____________',
         choices:  ['quotes', 'curly brackets', 'parenthesis', 'square brackets'],
-        answers: "alerts"
+        answers: "parenthesis"
         },
         {title:'Arrays in JavaScript can be used to store ___________________',
         choices:  ['numbers and strings', 'other arrays', 'booleans', 'all of the above'],
-        answers: "alerts"
+        answers: "all of the above"
         },
         {title:'A very useful tool used during development and debugging for printing content to the debugger is:',
         choices:  ['JavaScript', 'terminal/bash', 'for loops', 'console.log'],
-        answers: "alerts"
+        answers: "console.log"
 }
 ]
             
@@ -62,11 +62,14 @@ function getQuestion() {
     choiceNode.textContent = i + 1 + ". " + choice;
     // Create event listener and append child
     choiceNode.onclick = questionClick;
+  
     choicesEl.appendChild(choiceNode);
 });
 }
 function questionClick() {
-    if(this.value !== questions[currentQuestionIndex].answer) {
+  // console.log("question-click")
+  // console.log(this.value, questions[currentQuestionIndex].answers)
+    if(this.value !== questions[currentQuestionIndex].answers) {
         time -= 15;
         if (time < 0) {
             time = 0;

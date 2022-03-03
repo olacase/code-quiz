@@ -12,7 +12,11 @@
   go to link provided above and click on start quiz 
   ## Usage
   test your knowledge of JavaScript
-  ## License
+  ## Tools
+  HTML
+  CSS
+  JavaScript
+  DOM 
   
   ## Contributions
   None at the moment
