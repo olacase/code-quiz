@@ -14,33 +14,43 @@
     <div  class="container">
     
         <div id="start-screen" class="start">
-    <h1> Coding Quiz Challenge</h1>
-    <h3>
-         <p>Try to answer the following code related questions within the time limit
-    Keep in mind that incorrect answers will penalize your score/time
-by 10 seconds!</p>
-</h3>
-<div id="question-container">
-    <div id="question"> Question</div>
-    <div id="answer-buttons" class="btn-grid">
-        <div id="questions" class="hide">
-            <h2 id="question-title"></h2>
-            <div id="choices" class="choices"></div>
+            <h1> Coding Quiz Challenge</h1>
+            <h3>
+                 <p>Try to answer the following code related questions within the time limit
+            Keep in mind that incorrect answers will penalize your score/time
+        by 10 seconds!</p>
+        <button id="start-btn" class="start-btn">Start Quiz</button>
+        </h3>
+        </div>
+        <div id="question-container">
+            <div id="question"> Question</div>
+            <div id="answer-buttons" class="btn-grid">
+                <div id="questions" class="hide">
+                    <h2 id="question-title"></h2>
+                    <div id="choices" class="choices"></div>
+                  </div>
+            </div>
+        </div>
+        <div id="end-screen" class="hide">
+            <h2> All done!</h2>
+            <p>Your final score is <span id="final-score"></span>.</p>
+                <p>
+            <p> Enter initials: <input type="text" id="initials" max="3" /></p>
+            <button id="submit">Submit</button>
+        </div>
+        <div id="feedback" class="feedback hide"></div>
+        <div class="wrapper">
+            <h1>Highscores</h1>
+            <ol id="highscores"></ol>
+            <a href="index.html"><button>Go Back</button></a>
+            <button id="clear">Clear Highscores</button>
           </div>
-</div>
-
-    
-</div>
-
-<div id="end-screen" class="hide">
-    <h2> All done!</h2>
-    <p> Enter initials: <input type="text" id="initials" max="3" /></p>
-    <button id="submit">Submit</button>
-</div>
-
-<div id="feedback" class="feedback hide"></div>
-
-
-</body>
-<script src="./assets/JS/script.js"></script>
-</html>
+        </div>
+        </body>
+        <script src="./assets/JS/script.js"></script>
+        </html>
+        
+        
+        
+        
+        
