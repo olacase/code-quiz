@@ -116,6 +116,7 @@ function clockTick() {
     //   Getting value of initials input box
       var initials = initialsEl.value.trim();
       if (initials !== "") {
+        initialsEl.value="";
         //   Getting saved scores from local storage if exists or setting empty array
           var highscores =
           JSON.parse(window.localStorage.getItem("highscores")) || [];
@@ -127,18 +128,24 @@ function clockTick() {
         //   Pushing new score object to highscores array and parsing object to a string and saving to local storage
           highscores.push(newScore);
           window.localStorage.setItem("highscores", JSON.stringify(highscores));
+          printHighscores();
+          submitBtn.setAttribute("class", "hide");
       }
   }
   saveHighscore();
+
   function printHighscores() {
     //   Getting scores form local storage and parsing data from string to an object or setting an empty array if no scores exist
       var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
     //   If scores exist, loop through each and create a "li" element
+    var olEl = document.getElementById("highscores");
+
+    olEl.innerHTML = '';
       highscores.forEach(function(score) {
       var liTag = document.createElement("li");
-      liTag.textContent = score.initials + "-" + score.score;
+      liTag.textContent = score.initials;
     //   Append each "li" child to an "ol"
-      var olEl = document.getElementById("highscores");
+      
       olEl.appendChild(liTag);
     });
   }

@@ -3,6 +3,9 @@
   [github](https://github.com/olacase/code-quiz)
   
   ![Include a screenshot](img src)
+  /C:/Users/olaca/Documents/projects/code-quiz/images/
+
+
   ## Table of Contents
 *
   ## Introduction
