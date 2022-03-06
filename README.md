@@ -2,8 +2,7 @@
 
   [github](https://github.com/olacase/code-quiz)
   
-  ![Include a screenshot](img src)
-  /C:/Users/olaca/Documents/projects/code-quiz/images/
+ ![alt text] https://github.com/olacase/code-quiz/blob/main/assets/Images/snapshot.JPG/
 
 
   ## Table of Contents
