@@ -1,6 +1,6 @@
 // create start quiz button
 
-var questions = [
+let questions = [
         {title:'Commonly used data types DO Not include',
         choices:  ['alerts', 'strings', 'booleans', 'numbers'],
         answers: "alerts"
@@ -36,13 +36,13 @@ var choicesEl = document.getElementById("choices");
 var submitBtn = document.getElementById("submit");
 var startBtn = document.getElementById("start-btn");
 var initialsEl = document.getElementById("initials");
-var feedbackEl = document.getElementById("feedback");
+var comebackEl = document.getElementById("feedback");
 // This function hides the "start-screen" div and shows the "questions" div. Starts timer.
 function startQuiz() {
-    var startScreenEl = document.getElementById("start-screen");
-    startScreenEl.setAttribute("class", "hide");
+    var startUpEl = document.getElementById("start-screen");
+    startUpEl.setAttribute("class", "hide");
     questionsEl.removeAttribute("class");
-    timerId = setInterval(clockTick, 1000);
+    timerId = setInterval(clockTimer, 1000);
     timerEl.textContent = time;
     getQuestion();
 }
@@ -75,24 +75,24 @@ function questionClick() {
             time = 0;
         }
         timerEl.textContent = time;
-        feedbackEl.textContent = "Wrong!";
+        comebackEl.textContent = "Wrong!";
     } else {
-        feedbackEl.textContent = "Correct!";
+        comebackEl.textContent = "Correct!";
     }
-    feedbackEl.setAttribute("class", "feedback");
+    comebackEl.setAttribute("class", "feedback");
     setTimeout(function() {
-        feedbackEl.setAttribute("class", "feedback hide");
+        comebackEl.setAttribute("class", "feedback hide");
     }, 1000);
     // This moves to the next question
     currentQuestionIndex++;
     // If no more questions in the array end quiz
     if (currentQuestionIndex === questions.length) {
-        quizEnd();
+      endQuiz();
     } else {
         getQuestion();
     }
 }
-function quizEnd() {
+function endQuiz() {
     // Stopping the clock and showing "end-screen" section by removing "class" attribute
     clearInterval(timerId);
     var endScreenEl = document.getElementById("end-screen");
@@ -103,13 +103,13 @@ function quizEnd() {
     // Hiding "questions" div
     questionsEl.setAttribute("class", "hide");
 }
-function clockTick() {
+function clockTimer() {
     // update time
     time--;
     timerEl.textContent = time;
     // check if user ran out of time
     if (time <= 0) {
-      quizEnd();
+      endQuiz();
     }
   }
   function saveHighscore() {
@@ -138,15 +138,15 @@ function clockTick() {
     //   Getting scores form local storage and parsing data from string to an object or setting an empty array if no scores exist
       var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
     //   If scores exist, loop through each and create a "li" element
-    var olEl = document.getElementById("highscores");
+    var orderedListEl = document.getElementById("highscores");
 
-    olEl.innerHTML = '';
+    orderedListEl.innerHTML = '';
       highscores.forEach(function(score) {
-      var liTag = document.createElement("li");
-      liTag.textContent = score.initials;
+      var list = document.createElement("li");
+      list.textContent = score.initials;
     //   Append each "li" child to an "ol"
       
-      olEl.appendChild(liTag);
+      orderedListEl.appendChild(list);
     });
   }
 printHighscores();
